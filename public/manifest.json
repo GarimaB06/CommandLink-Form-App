@@ -1,0 +1,6 @@
+{
+	"short_name": "Form App",
+	"name": "My Form App",
+	"start_url": ".",
+	"display": "standalone"
+}
