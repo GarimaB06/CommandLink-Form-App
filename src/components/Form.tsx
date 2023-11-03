@@ -15,6 +15,10 @@ import {
 	StyledTextAreaWrapper,
 	StyledSelectWrapper,
 } from "../styledComponents/Stylesheet.styled";
+import {
+	sortFormDataByLevels,
+	camelCaseToTitleCase,
+} from "../utils/utilityFunction";
 
 export const Form: React.FC = () => {
 	const [sortedArr, setSortedArr] = useState<FieldObject[]>([]);
@@ -24,7 +28,11 @@ export const Form: React.FC = () => {
 	const dispatch: AppDispatch = useDispatch();
 
 	useEffect(() => {
-		sortFormDataByLevels(formData);
+		/*
+		 * This function takes the flattened data object and sorts
+		 * its data by levels and returns a sorted array of data objects
+		 */
+		setSortedArr(sortFormDataByLevels(formData));
 	}, [formData]);
 
 	const handleInputChange = (
@@ -39,35 +47,6 @@ export const Form: React.FC = () => {
 			| HTMLTextAreaElement
 			| HTMLSelectElement;
 		dispatch(updateFormVal({ id, value: target.value }));
-	};
-
-	/*
-	 * This function takes the flattened data object
-	 * and sorts it's data by levels
-	 * and returns a sorted array of data objects
-	 */
-
-	const sortFormDataByLevels = (formData: FlattenedData) => {
-		const dataObjectsArray: FieldObject[] = Object.values(formData);
-		const sortedDataObjectsArray: FieldObject[] = dataObjectsArray.sort(
-			(a, b) => {
-				const levelStr1 = String(a.level);
-				const levelStr2 = String(b.level);
-				return levelStr1.localeCompare(levelStr2);
-			}
-		);
-		setSortedArr(sortedDataObjectsArray);
-	};
-
-	/*
-	 * This method accepts the id string(written in camelCase) and converts it to title case
-	 */
-	const camelCaseToTitleCase = (input: string): string => {
-		const words: string[] = input.split(/(?=[A-Z])/);
-		const titleCase: string = words
-			.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-			.join(" ");
-		return titleCase;
 	};
 
 	/*
