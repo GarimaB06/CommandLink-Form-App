@@ -1,4 +1,4 @@
-import { FieldData, FlattenedData } from "../types";
+import { FieldData, FlattenedData, FieldObject } from "../types";
 /*
     TO DO : Unit test 1
 */
@@ -25,6 +25,31 @@ const flattenData = (FIELD_DATA: FieldData): FlattenedData => {
 		}
 	}
 	return flattenedData;
+};
+
+export const sortFormDataByLevels = (
+	formData: FlattenedData
+): FieldObject[] => {
+	const dataObjectsArray: FieldObject[] = Object.values(formData);
+	const sortedDataObjectsArray: FieldObject[] = dataObjectsArray.sort(
+		(a, b) => {
+			const levelStr1 = String(a.level);
+			const levelStr2 = String(b.level);
+			return levelStr1.localeCompare(levelStr2);
+		}
+	);
+	return sortedDataObjectsArray;
+};
+
+/*
+ * This method accepts the id string(written in camelCase) and converts it to title case
+ */
+export const camelCaseToTitleCase = (input: string): string => {
+	const words: string[] = input.split(/(?=[A-Z])/);
+	const titleCase: string = words
+		.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+		.join(" ");
+	return titleCase;
 };
 
 export default flattenData;
