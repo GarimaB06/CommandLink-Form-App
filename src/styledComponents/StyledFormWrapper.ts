@@ -14,20 +14,10 @@ export const StyledFormWrapper = styled.form`
 	"reason reason reason"
 	". sub .";
 	@media screen and (max-width: 580px){
-	width: 100%;
-	grid-template: 
-	"contactTitle"
-	"firstName"
-	"lastName"
-	"Email"
-	"address1"
-	"city"
-	"state"
-	"zip"
-	"phone"
-	"jobTitle"
-	"reason"
-	"sub";
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: 90%;
 	}
 }
 `;

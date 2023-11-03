@@ -53,3 +53,7 @@ export interface FormProps {
 export type Hashmap = {
 	[key: string]: string;
 };
+
+export type Props = {
+	disabled: boolean;
+};

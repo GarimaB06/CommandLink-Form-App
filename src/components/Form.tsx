@@ -18,7 +18,7 @@ import {
 
 export const Form: React.FC = () => {
 	const [sortedArr, setSortedArr] = useState<FieldObject[]>([]);
-	const [submitted, setSubmitted] = useState(false);
+	const [submitted, setSubmitted] = useState<boolean>(false);
 
 	const formData = useSelector((state: RootState) => state.form);
 	const dispatch: AppDispatch = useDispatch();
@@ -130,7 +130,7 @@ export const Form: React.FC = () => {
 	};
 
 	return (
-		<StyledApp>
+		<StyledApp className="App">
 			<StyledFormWrapper
 				onSubmit={(e) => {
 					e.preventDefault();
@@ -145,6 +145,7 @@ export const Form: React.FC = () => {
 						background: "#ffd5d5",
 						gridArea: "contactTitle",
 					}}
+					disabled={submitted}
 				>
 					{submitted ? (
 						<StyledTitle>Thank you for your submission!</StyledTitle>
@@ -154,10 +155,11 @@ export const Form: React.FC = () => {
 				</StyledParentDivWrapper>
 				{sortedArr.map((fieldObject, index) => (
 					<StyledParentDivWrapper
+						disabled={submitted}
 						style={{ gridArea: fieldObject.id }}
 						key={`${fieldObject.level}-${index}`}
 					>
-						<StyledLabel htmlFor={`${fieldObject.id}`}>
+						<StyledLabel disabled={submitted} htmlFor={`${fieldObject.id}`}>
 							{camelCaseToTitleCase(fieldObject.id)}
 						</StyledLabel>
 						{renderInputType(
