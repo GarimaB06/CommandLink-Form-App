@@ -1,7 +1,4 @@
-import { FieldData, FlattenedData, FieldObject } from "../types";
-/*
-    TO DO : Unit test 1
-*/
+import { FieldData, FlattenedData, FieldObject } from "../types/types";
 
 const flattenData = (FIELD_DATA: FieldData): FlattenedData => {
 	const flattenedData: FlattenedData = {};

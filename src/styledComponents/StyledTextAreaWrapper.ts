@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Props } from "../types";
+import { Props } from "../types/types";
 
 export const StyledTextAreaWrapper = styled.textarea<Props>`
 	width: -webkit-fill-available;

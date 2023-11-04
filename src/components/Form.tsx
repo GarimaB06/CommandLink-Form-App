@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch } from "../store";
 import { RootState } from "../store";
-import { FieldObject, FlattenedData } from "../types";
+import { FieldObject } from "../types/types";
 import {
 	StyledApp,
 	StyledTitle,

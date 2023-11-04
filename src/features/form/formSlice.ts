@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { FlattenedData, PayloadType } from "../../types";
+import { FlattenedData, PayloadType } from "../../types/types";
 import flattenData from "../../utils/utilityFunction";
 import { FIELD_DATA } from "../../data/data";
 

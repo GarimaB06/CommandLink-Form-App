@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Props } from "../types";
+import { Props } from "../types/types";
 
 export const StyledSelectWrapper = styled.select<Props>`
 	color: #5a5a5a;
