@@ -17,7 +17,7 @@ A simple form submission app built with TypeScript, React, Redux Toolkit and Sty
 - Collect, verify, and display information with ease.
 - Built with TypeScript for type safety.
 - Utilizes React for a dynamic and responsive user interface.
-- Utilized Redux Toolkit for state management. 
+- Utilizes Redux Toolkit for state management. 
 - Styled with Styled Components for flexible and maintainable styling.
 
 ## Getting Started
