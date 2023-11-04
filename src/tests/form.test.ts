@@ -2,8 +2,8 @@ import "@testing-library/jest-dom";
 import flattenData, {
 	camelCaseToTitleCase,
 	sortFormDataByLevels,
-} from "./utils/utilityFunction";
-import { FieldData, FlattenedData } from "./types";
+} from "../utils/utilityFunction";
+import { FieldData, FlattenedData } from "../types/types";
 
 const expectedFlattenedData: FlattenedData = {
 	fName: {

@@ -1,4 +1,4 @@
-import { FieldData } from "../types";
+import { FieldData } from "../types/types";
 
 export const FIELD_DATA: FieldData = [
 	[
