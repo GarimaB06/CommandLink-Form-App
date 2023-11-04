@@ -77,6 +77,8 @@ export const Form: React.FC = () => {
 						pattern={pattern}
 						onChange={(e) => handleInputChange(e, id)}
 						disabled={submitted}
+						id={id}
+						aria-label={id}
 					/>
 				);
 			case "select":
@@ -85,6 +87,8 @@ export const Form: React.FC = () => {
 						required={required}
 						onChange={(e) => handleInputChange(e, id)}
 						disabled={submitted}
+						id={id}
+						aria-label={id}
 					>
 						<option>{placeholder}</option>
 						{options?.map((optionString: string, index) => (
@@ -101,6 +105,8 @@ export const Form: React.FC = () => {
 						required={required}
 						onChange={(e) => handleInputChange(e, id)}
 						disabled={submitted}
+						id={id}
+						aria-label={id}
 					></StyledTextAreaWrapper>
 				);
 			default:
@@ -124,6 +130,7 @@ export const Form: React.FC = () => {
 						background: "#ffd5d5",
 						gridArea: "contactTitle",
 					}}
+					aria-label="contact-form"
 					disabled={submitted}
 				>
 					{submitted ? (
@@ -138,7 +145,7 @@ export const Form: React.FC = () => {
 						style={{ gridArea: fieldObject.id }}
 						key={`${fieldObject.level}-${index}`}
 					>
-						<StyledLabel disabled={submitted} htmlFor={`${fieldObject.id}`}>
+						<StyledLabel disabled={submitted} htmlFor={fieldObject.id}>
 							{camelCaseToTitleCase(fieldObject.id)}
 						</StyledLabel>
 						{renderInputType(
@@ -151,7 +158,13 @@ export const Form: React.FC = () => {
 					</StyledParentDivWrapper>
 				))}
 				{submitted ? null : (
-					<StyledButton style={{ gridArea: "sub" }}>Submit</StyledButton>
+					<StyledButton
+						style={{ gridArea: "sub" }}
+						type="submit"
+						aria-label="Submit"
+					>
+						Submit
+					</StyledButton>
 				)}
 			</StyledFormWrapper>
 		</StyledApp>
